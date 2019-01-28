@@ -5,7 +5,9 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Activity, CardActionTypes, DirectLine, DirectLineOptions, IBotConnection, User } from 'botframework-directlinejs';
+import { CardActionTypes } from './CardActionTypes';
+
+import { Activity, DirectLine, DirectLineOptions, IBotConnection, User } from 'botframework-directlinejs';
 import { Provider } from 'react-redux';
 import { getTabIndex } from './getTabIndex';
 import * as konsole from './Konsole';
@@ -335,6 +337,10 @@ export const doCardAction = (
 
         case 'postBack':
             sendPostBack(botConnection, text, value, from, locale);
+            break;
+
+        case 'reload':
+            location.reload();
             break;
 
         case 'call':
